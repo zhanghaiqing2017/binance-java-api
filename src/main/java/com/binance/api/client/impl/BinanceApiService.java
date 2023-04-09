@@ -184,6 +184,9 @@ public interface BinanceApiService {
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
     @GET("/sapi/v1/sub-account/transfer/subUserHistory")
     Call<List<SubAccountTransfer>> getSubAccountTransfers(@Query("timestamp") Long timestamp);
+    @Headers({BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER})
+    @POST("/sapi/v1/sub-account/transfer/subToMaster")
+    Call<MarginTransaction> subToMaster(@Query("asset") String asset, @Query("amount") String amount, @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
     // User stream endpoints
 
@@ -204,9 +207,6 @@ public interface BinanceApiService {
     @POST("/sapi/v1/margin/transfer")
     Call<MarginTransaction> transfer(@Query("asset") String asset, @Query("amount") String amount, @Query("type") String type, @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
-    @Headers({BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER, BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER})
-    @POST("/sapi/v1/sub-account/transfer/subToMaster")
-    Call<MarginTransaction> subToMaster(@Query("asset") String asset, @Query("amount") String amount, @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
     @Headers({BinanceApiConstants.ENDPOINT_SECURITY_TYPE_APIKEY_HEADER, BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER})
     @POST("/sapi/v1/margin/loan")

@@ -19,7 +19,5 @@ public class Test {
 //        MarginTransaction usdt = client.subToMaster("USDT", "1");
 
 
-        System.out.println(usdt.getTranId());
-
     }
 }
