@@ -1,6 +1,10 @@
 package com.binance.api.client;
 
+import com.binance.api.client.domain.account.Account;
 import com.binance.api.client.domain.account.MarginTransaction;
+import com.binance.api.client.domain.account.SubAccountTransfer;
+
+import java.util.List;
 
 public class Test {
     public static BinanceApiRestClient createBinanceApiRestClient(String apiKey,String secret){
@@ -14,10 +18,13 @@ public class Test {
         return client;
     }
     public static void main(String[] args) {
-        BinanceApiMarginRestClient client =creatBinanceApiMarginRestClient("SFSQmJ3Gw9QGt4dY4hOU73xHTSp6pNrJVvoD0TCpw2jvO2mK6llIN50AERQwkUcm",
-                "SFSQmJ3Gw9QGt4dY4hOU73xHTSp6pNrJVvoD0TCpw2jvO2mK6llIN50AERQwkUcm");
-//        MarginTransaction usdt = client.subToMaster("USDT", "1");
-
+        BinanceApiRestClient client =createBinanceApiRestClient("",
+                "");
+//      Account account = client.getAccount();
+      List<SubAccountTransfer> subAccountTransfers = client.getSubAccountTransfers();
+      System.out.println(subAccountTransfers.toString());
+//      MarginTransaction usdt = client.subToMaster("USDT", "1");
+//      System.out.println(usdt.getTranId());
 
     }
 }

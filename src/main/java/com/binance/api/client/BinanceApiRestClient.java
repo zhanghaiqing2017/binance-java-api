@@ -301,7 +301,7 @@ public interface BinanceApiRestClient {
    * @return sub-account transfers
    */
   List<SubAccountTransfer> getSubAccountTransfers();
-
+  MarginTransaction subToMaster(String asset, String amount);
   /**
    * Fetch deposit address.
    *

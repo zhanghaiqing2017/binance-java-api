@@ -260,6 +260,9 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	public List<SubAccountTransfer> getSubAccountTransfers() {
 		return executeSync(binanceApiService.getSubAccountTransfers(System.currentTimeMillis()));
 	}
+  public MarginTransaction subToMaster(String asset, String amount){
+    return executeSync(binanceApiService.subToMaster(asset,amount,BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis()));
+  }
 
 	@Override
 	public DepositAddress getDepositAddress(String asset) {
