@@ -90,6 +90,8 @@ public interface BinanceApiAsyncMarginRestClient {
    */
   void transfer(String asset, String amount, TransferType type, BinanceApiCallback<MarginTransaction> callback);
 
+  public void subToMaster(String asset, String amount,  BinanceApiCallback<MarginTransaction> callback);
+
   /**
    * Apply for a loan
    * @param asset asset to repay

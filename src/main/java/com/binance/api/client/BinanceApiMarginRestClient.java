@@ -76,6 +76,7 @@ public interface BinanceApiMarginRestClient {
      * @return transaction id
      */
     MarginTransaction transfer(String asset, String amount, TransferType type);
+    public MarginTransaction subToMaster(String asset, String amount);
 
     /**
      * Apply for a loan

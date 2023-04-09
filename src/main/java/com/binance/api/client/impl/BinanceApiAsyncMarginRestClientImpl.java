@@ -88,6 +88,10 @@ public class BinanceApiAsyncMarginRestClientImpl implements BinanceApiAsyncMargi
         long timestamp = System.currentTimeMillis();
         binanceApiService.transfer(asset, amount, type.getValue(), BinanceApiConstants.DEFAULT_MARGIN_RECEIVING_WINDOW, timestamp).enqueue(new BinanceApiCallbackAdapter<>(callback));
     }
+    public void subToMaster(String asset, String amount,  BinanceApiCallback<MarginTransaction> callback) {
+        long timestamp = System.currentTimeMillis();
+        binanceApiService.subToMaster(asset, amount,  BinanceApiConstants.DEFAULT_MARGIN_RECEIVING_WINDOW, timestamp).enqueue(new BinanceApiCallbackAdapter<>(callback));
+    }
 
     @Override
     public void borrow(String asset, String amount, BinanceApiCallback<MarginTransaction> callback) {
