@@ -34,8 +34,11 @@ public interface BinanceApiService {
     @GET("/api/v3/exchangeInfo")
     Call<ExchangeInfo> getExchangeInfo();
 
-    @GET
-    Call<List<Asset>> getAllAssets(@Url String url);
+    @GET("/sapi/v1/capital/config/getall")
+    Call<List<Asset>> getAllAssets();
+
+
+
 
     // Market data endpoints
 
@@ -146,7 +149,12 @@ public interface BinanceApiService {
     @GET("/api/v3/account")
     Call<Account> getAccount(@Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
-    @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
+  @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
+  @GET("/sapi/v1/capital/config/getall")
+  Call<Object> getAll(@Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
+
+
+  @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
     @GET("/api/v3/myTrades")
     Call<List<Trade>> getMyTrades(@Query("symbol") String symbol, @Query("limit") Integer limit, @Query("fromId") Long fromId,
                                   @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);

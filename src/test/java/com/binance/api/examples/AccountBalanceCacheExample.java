@@ -76,6 +76,7 @@ public class AccountBalanceCacheExample {
   }
 
   public static void main(String[] args) {
-    new AccountBalanceCacheExample("YOUR_API_KEY", "YOUR_SECRET");
+
+    new AccountBalanceCacheExample("66dLHliynTUBTTPymeoZkUXQQMJWMT2mZ4hc4jeEg7hksgPjEC6NLGshrlrRfqZG", "9b32ni7aI2qTGK32g51hvLK1vkekGZAKrVET1vOZvHWJ3JwyDqQDOmJq0UStZdOl");
   }
 }

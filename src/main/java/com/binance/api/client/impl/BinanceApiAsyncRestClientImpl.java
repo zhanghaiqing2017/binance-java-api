@@ -65,7 +65,7 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
 
   @Override
   public void getAllAssets(BinanceApiCallback<List<Asset>> callback) {
-    binanceApiService.getAllAssets(BinanceApiConfig.getAssetInfoApiBaseUrl() + "assetWithdraw/getAllAsset.html")
+    binanceApiService.getAllAssets()
         .enqueue(new BinanceApiCallbackAdapter<>(callback));
   }
 
@@ -186,6 +186,8 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
   public void getAccount(Long recvWindow, Long timestamp, BinanceApiCallback<Account> callback) {
     binanceApiService.getAccount(recvWindow, timestamp).enqueue(new BinanceApiCallbackAdapter<>(callback));
   }
+
+
 
   @Override
   public void getAccount(BinanceApiCallback<Account> callback) {

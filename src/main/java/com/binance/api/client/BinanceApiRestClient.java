@@ -231,6 +231,8 @@ public interface BinanceApiRestClient {
    */
   Account getAccount();
 
+  public Object getAll() ;
+
   /**
    * Get trades for a specific account and symbol.
    *
@@ -257,7 +259,7 @@ public interface BinanceApiRestClient {
    * @return a list of trades
    */
   List<Trade> getMyTrades(String symbol);
-  
+
   List<Trade> getMyTrades(String symbol, Long fromId);
 
   /**

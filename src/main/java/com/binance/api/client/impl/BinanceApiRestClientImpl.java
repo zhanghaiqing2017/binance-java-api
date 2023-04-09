@@ -47,7 +47,7 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	@Override
 	public List<Asset> getAllAssets() {
 		return executeSync(binanceApiService
-				.getAllAssets(BinanceApiConfig.getAssetInfoApiBaseUrl() + "assetWithdraw/getAllAsset.html"));
+				.getAllAssets());
 	}
 
 	// Market Data endpoints
@@ -204,6 +204,11 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	public Account getAccount() {
 		return getAccount(BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis());
 	}
+  @Override
+  public Object  getAll() {
+    return executeSync(binanceApiService.getAll(BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis()));
+  }
+
 
 	@Override
 	public List<Trade> getMyTrades(String symbol, Integer limit, Long fromId, Long recvWindow, Long timestamp) {
